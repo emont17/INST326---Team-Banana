@@ -1,4 +1,4 @@
-###These functions will set up a menu for user to shop at various store in the mall."""
+"""These functions will set up a menu for user to shop at various store in the mall."""
 
 Nike = 1
 Dicks = 2
