@@ -1,5 +1,6 @@
 """These functions will set up a menu for user to shop at various store in the mall."""
 class Mall:
+    """Mall class creates mall for user to shop in"""
     
     Nike = 1
     Dicks = 2
@@ -9,6 +10,7 @@ class Mall:
     QUIT = 6
 
     def menu(self):
+        """This method shows mall directory to user"""
         print('     MALL DIRECTORY')
         print('1) Nike')
         print('2) Dicks')
