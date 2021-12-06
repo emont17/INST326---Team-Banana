@@ -55,6 +55,6 @@ class Mall:
                 print()
 
     
-instance = Mall()
-instance.user_choice()
+mall = Mall()
+mall.user_choice()
 
