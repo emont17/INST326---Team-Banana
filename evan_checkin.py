@@ -1,7 +1,8 @@
 """These functions will set up a menu for user to shop at various store in the mall."""
 class Mall:
     """Mall class creates mall for user to shop in"""
-
+    
+    
     def menu(self):
         """This method shows mall directory to user"""
         self.nike = 1
@@ -20,6 +21,9 @@ class Mall:
         print('6) Leave Mall') 
         print()
         
+        
+    
+
     def user_choice(self):
         """This function allows user to select a store to shop in"""
         self.menu()
@@ -50,7 +54,13 @@ class Mall:
                 print('ERROR: INVALID SELECTION, please try again:')
                 print()
 
+    #def nike():
+    #def dicks():
+    #def bass_pro_shops():
+    #def macys():
+    #def american_eagle():
+
     
-mall = Mall()
-mall.user_choice()
+instance = Mall()
+instance.user_choice()
 
