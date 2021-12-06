@@ -2,15 +2,16 @@
 class Mall:
     """Mall class creates mall for user to shop in"""
     
-    Nike = 1
-    Dicks = 2
-    Bass_Pro_Shops = 3
-    Macys = 4
-    American_Eagle = 5
-    QUIT = 6
-
+    
     def menu(self):
         """This method shows mall directory to user"""
+        self.nike = 1
+        self.dicks = 2
+        self.bass_Pro_Shops = 3
+        self.macys = 4
+        self.american_Eagle = 5
+        self.quit = 6
+        
         print('     MALL DIRECTORY')
         print('1) Nike')
         print('2) Dicks')
@@ -28,30 +29,32 @@ class Mall:
         self.menu()
         choice = 0
         while choice != "QUIT":
-            choice = int(input('Which store would you like to shop at first? '))
+            choice = int(input('Which store would you like to shop at? '))
             print()
-            if choice == Nike:
+            if choice == self.nike:
                 print('You are now in Nike, shop away!')
                 print()
-            elif choice == Dicks:
+            elif choice == self.dicks:
                 print('You are now in Dicks, shop away!')
                 print()
-            elif choice == Bass_Pro_Shops:
+            elif choice == self.bass_Pro_Shops:
                 print('You are now in Bass Pro Shops, shop away!')
                 print()
-            elif choice == Macys:
+            elif choice == self.macys:
                 print('You are now in Macys, shop away!')
                 print()
-            elif choice == American_Eagle:
+            elif choice == self.american_Eagle:
                 print('You are now in American Eagle, shop away!')
                 print()
-            elif choice == "QUIT":
+            elif choice == self.quit:
                 print('You have left the Mall, have a great day!')
                 print()
+                break
             else:
-                print('ERROR: INVALID SELECTION')
+                print('ERROR: INVALID SELECTION, please try again:')
                 print()
 
     
 instance = Mall()
 instance.user_choice()
+
