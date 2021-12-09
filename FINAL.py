@@ -77,62 +77,82 @@ class Mall:
         print()
     
 
-        shoe_prices = {'Running shoes': 100, 'Soccer cleats': 200, 'Skateboard shoes': 75, 'Leisure shoes': 50}
+        shoe_prices = {'Running shoes': 99.99, 'Soccer cleats': 199.99, 'Skateboard shoes': 74.99, 'Leisure shoes': 49.99}
         shoe_purchases = 0
         shoe_cart = []
 
-        outerwear_prices = {'Rain jacket': 125.00, 'Ski coat': 200.00, 'Hoodie': 50.00, '1/4 Fleece': 65.00}
+        outerwear_prices = {'Rain jacket': 124.99, 'Ski coat': 199.99, 'Hoodie': 49.99, '1/4 Fleece': 64.99}
         outerwear_purchases = 0
         outerwear_cart = []
 
-        accessories_prices = {'Sunglasses': 105.00, 'Beanie': 20.00, 'Socks': 15.00, 'Running watch': 55.00}
+        accessories_prices = {'Sunglasses': 104.99, 'Beanie': 19.99, 'Socks': 14.99, 'Running watch': 54.99}
         accessories_purchases = 0
         accessories_cart = []
+
+        total = 0
 
         user_choice = int(input('Welcome to Nike! Which of our departments above would you like to shop in? '))
         print()
 
         while user_choice != Exit:
-            if user_choice == Footwear:
+            """ if user_choice == Footwear:
                 print(shoe_prices, '\n')
                 shoe_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                shoe_purchases += shoe_prices[shoe_choice]
                 if shoe_choice == 'done':
                     print('Your cart consists of the following items below:' '\n')
                     print(shoe_cart, '\n')
                     print('The amount you purchased on shoes is: $',shoe_purchases, '\n')
                     self.nike_store()
                 shoe_cart.append(shoe_choice)
-                shoe_purchases += shoe_prices[shoe_choice]
+                #shoe_purchases += shoe_prices[shoe_choice]"""
+
+            if user_choice == Footwear:
+                print(shoe_prices, '\n')
+                shoe_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if shoe_choice != 'done':
+                    shoe_purchases += shoe_prices[shoe_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(shoe_cart, '\n')
+                    print('The amount you purchased on shoes is: $',shoe_purchases, '\n')
+                    self.nike_store()
+                    total += shoe_purchases
+                shoe_cart.append(shoe_choice)
             
-    
+            
             elif user_choice == Outerwear:
                 print(outerwear_prices, '\n')
                 outerwear_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-                if outerwear_choice == 'done':
-                    print('Your cart consists of the following items below:' '\n')
+                if outerwear_choice != 'done':
+                    outerwear_purchases += outerwear_prices[outerwear_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
                     print(outerwear_cart, '\n')
                     print('The amount you purchased on outerwear is: $',outerwear_purchases, '\n')
                     self.nike_store()
+                    total += outerwear_purchases
                 outerwear_cart.append(outerwear_choice)
-                outerwear_purchases += outerwear_prices[outerwear_choice]
-            
+                
                 
             elif user_choice == Accessories:
                 print(accessories_prices, '\n')
                 accessories_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-                if accessories_choice == 'done':
-                    print('Your cart consists of the following items below:' '\n')
+                if accessories_choice != 'done':
+                    accessories_purchases += accessories_prices[accessories_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
                     print(accessories_cart, '\n')
                     print('The amount you purchased on accessories is: $',accessories_purchases, '\n')
                     self.nike_store()
+                    total += accessories_purchases
                 accessories_cart.append(accessories_choice)
-                accessories_purchases += accessories_prices[accessories_choice]
                 
-                
-            elif user_choice == Exit:
-                total = shoe_purchases + outerwear_purchases + accessories_purchases
-                print('Thanks for shopping at Nike. Your total came out to be: $',total, 'Come again!' '\n')
-                self.user_choice()  
+    
+        
+        
+        print('Thanks for shopping at Nike. Your total came out to be: $',total, 'Come again!' '\n')
+        self.user_choice()
             
 
 instance = Mall()
