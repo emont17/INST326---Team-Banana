@@ -241,7 +241,7 @@ class Mall:
         Hunting_purchases = 0
         Hunting_cart = []
 
-        Camping_prices = {'Tent': 130.25, 'Sleeping bag': 69.95, 'Protable stove': 19.99, 'Deluxe tent': 500.00}
+        Camping_prices = {'Tent': 130.25, 'Sleeping bag': 69.95, 'Portable stove': 19.99, 'Deluxe tent': 500.00}
         Camping_purchases = 0
         Camping_cart = []
 
@@ -290,6 +290,82 @@ class Mall:
                 Camping_cart.append(camping_choice)
         
         print('Thanks for shopping at Bass Pro Shops. Your total came out to be: $',self.total, 'Come again!' '\n')
+        self.user_choice()
+
+    def macys_store(self):
+        """
+        A method to allow the shopper to shop in specific departements each store offers.
+        Returns:
+            
+        """
+        Footwear = 1
+        Designer = 2
+        Jewelry = 3
+        Exit = 4
+
+        print('1) Footwear')
+        print('2) Designer')
+        print('3) Jewelry')
+        print('4) Exit')
+        print()
+
+        Footwear_prices = {'Dress shoes': 79.50, 'Winter boots': 95.00, 'Ugg slippers':99.99, 'Sandals': 29.75}
+        Footwear_purchases = 0
+        Footwear_cart = []
+
+        Designer_prices = {'Polo belt': 70.00, 'Michael Kors purse': 198.00, 'CK sweater': 89.50, 'Coach glasses': 173.00}
+        Designer_purchases = 0
+        Designer_cart = []
+
+        Jewelry_prices = {'Fitbit': 129.95, 'Earrings': 19.95, 'Necklace': 39.99, 'Luxury watch': 1500.00}
+        Jewelry_purchases = 0
+        Jewelry_cart = []
+
+
+        user_choice = int(input('Welcome to Macys! Which of our departments above would you like to shop in? '))
+        print()
+
+        while user_choice != Exit:
+            if user_choice == Footwear:
+                print(Footwear_prices, '\n')
+                footwear_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if footwear_choice != 'done':
+                    Footwear_purchases += Footwear_prices[footwear_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Footwear_cart, '\n')
+                    print('The amount you purchased on footwear is: $',Footwear_purchases, '\n')
+                    self.total += Footwear_purchases
+                    self.macys_store()
+                Footwear_cart.append(footwear_choice)
+            
+            elif user_choice == Designer:
+                print(Designer_prices, '\n')
+                designer_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if designer_choice != 'done':
+                    Designer_purchases += Designer_prices[designer_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Designer_cart, '\n')
+                    print('The amount you purchased on designer accessories is: $',Designer_purchases, '\n')
+                    self.total += Designer_purchases
+                    self.macys_store()
+                Designer_cart.append(designer_choice)
+                
+            elif user_choice == Jewelry:
+                print(Jewelry_prices, '\n')
+                jewelry_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if jewelry_choice != 'done':
+                    Jewelry_purchases += Jewelry_prices[jewelry_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Jewelry_cart, '\n')
+                    print('The amount you purchased on jewelry is: $',Jewelry_purchases, '\n')
+                    self.total += Jewelry_purchases
+                    self.macys_store()
+                Jewelry_cart.append(jewelry_choice)
+        
+        print('Thanks for shopping at Macys. Your total came out to be: $',self.total, 'Come again!' '\n')
         self.user_choice()
             
 
