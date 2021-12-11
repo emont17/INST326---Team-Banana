@@ -39,9 +39,11 @@ class Mall:
                 print()
             elif choice == self.bass_Pro_Shops:
                 print('You are now in Bass Pro Shops, shop away!')
+                self.bps_store()
                 print()
             elif choice == self.macys:
                 print('You are now in Macys, shop away!')
+                self.macys_store()
                 print()
             elif choice == self.american_Eagle:
                 print('You are now in American Eagle, shop away!')
