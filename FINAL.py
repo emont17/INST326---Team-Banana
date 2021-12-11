@@ -215,6 +215,82 @@ class Mall:
         
         print('Thanks for shopping at Dicks. Your total came out to be: $',self.total, 'Come again!' '\n')
         self.user_choice()
+        
+    def bps_store(self):
+        """
+        A method to allow the shopper to shop in specific departements each store offers.
+        Returns:
+            
+        """
+        Fishing = 1
+        Hunting = 2
+        Camping = 3
+        Exit = 4
+
+        print('1) Fishing')
+        print('2) Hunting')
+        print('3) Camping')
+        print('4) Exit')
+        print()
+
+        Fishing_prices = {'Fly rod': 121.99, 'Senkos': 6.50, 'Dozen flies': 14.99, 'Net': 24.15}
+        Fishing_purchases = 0
+        Fishing_cart = []
+
+        Hunting_prices = {'Duck blind': 429.99, 'Tree stand': 139.25, 'Trail cam': 79.99, 'Turkey call': 21.99}
+        Hunting_purchases = 0
+        Hunting_cart = []
+
+        Camping_prices = {'Tent': 130.25, 'Sleeping bag': 69.95, 'Protable stove': 19.99, 'Deluxe tent': 500.00}
+        Camping_purchases = 0
+        Camping_cart = []
+
+
+        user_choice = int(input('Welcome to Bass Pro Shops! Which of our departments above would you like to shop in? '))
+        print()
+
+        while user_choice != Exit:
+            if user_choice == Fishing:
+                print(Fishing_prices, '\n')
+                fishing_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if fishing_choice != 'done':
+                    Fishing_purchases += Fishing_prices[fishing_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Fishing_cart, '\n')
+                    print('The amount you purchased on fishing gear is: $',Fishing_purchases, '\n')
+                    self.total += Fishing_purchases
+                    self.bps_store()
+                Fishing_cart.append(fishing_choice)
+            
+            elif user_choice == Hunting:
+                print(Hunting_prices, '\n')
+                hunting_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if hunting_choice != 'done':
+                    Hunting_purchases += Hunting_prices[hunting_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Hunting_cart, '\n')
+                    print('The amount you purchased on hunting gear is: $',Hunting_purchases, '\n')
+                    self.total += Hunting_purchases
+                    self.dicks_store()
+                Hunting_cart.append(hunting_choice)
+                
+            elif user_choice == Camping:
+                print(Camping_prices, '\n')
+                camping_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if camping_choice != 'done':
+                    Camping_purchases += Camping_prices[camping_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Camping_cart, '\n')
+                    print('The amount you purchased on camping gear is: $',Camping_purchases, '\n')
+                    self.total += Camping_purchases
+                    self.bps_store()
+                Camping_cart.append(camping_choice)
+        
+        print('Thanks for shopping at Bass Pro Shops. Your total came out to be: $',self.total, 'Come again!' '\n')
+        self.user_choice()
             
 
 instance = Mall()
