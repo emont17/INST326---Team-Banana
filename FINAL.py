@@ -369,6 +369,82 @@ class Mall:
         
         print('Thanks for shopping at Macys. Your total came out to be: $',self.total, 'Come again!' '\n')
         self.user_choice()
+        
+    def ae_store(self):
+        """
+        A method to allow the shopper to shop in specific departements each store offers.
+        Returns:
+            
+        """
+        Tops = 1
+        Bottoms = 2
+        Accessories = 3
+        Exit = 4
+
+        print('1) Tops')
+        print('2) Bottoms')
+        print('3) Accessories')
+        print('4) Exit')
+        print()
+
+        Tops_prices = {'Sweatshirt': 37.50, 'Flannel': 59.95, 'T shirt': 22.99, 'Denim jacket': 49.75}
+        Tops_purchases = 0
+        Tops_cart = []
+
+        Bottoms_prices = {'Jeans': 49.95, 'Chinos': 39.95, 'Sweatpants': 34.50, 'Camo joggers': 59.95}
+        Bottoms_purchases = 0
+        Bottoms_cart = []
+
+        Accessories_prices = {'Wallet': 19.95, 'Socks': 15.95, 'Gloves': 11.96, 'Scarf': 14.96}
+        Accessories_purchases = 0
+        Accessories_cart = []
+
+
+        user_choice = int(input('Welcome to American Eagle! Which of our departments above would you like to shop in? '))
+        print()
+
+        while user_choice != Exit:
+            if user_choice == Tops:
+                print(Tops_prices, '\n')
+                tops_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if tops_choice != 'done':
+                    Tops_purchases += Tops_prices[tops_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Tops_cart, '\n')
+                    print('The amount you purchased on tops is: $',Tops_purchases, '\n')
+                    self.total += Tops_purchases
+                    self.ae_store()
+                Tops_cart.append(tops_choice)
+            
+            elif user_choice == Bottoms:
+                print(Bottoms_prices, '\n')
+                bottoms_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if bottoms_choice != 'done':
+                    Bottoms_purchases += Bottoms_prices[bottoms_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Bottoms_cart, '\n')
+                    print('The amount you purchased on bottoms is: $',Bottoms_purchases, '\n')
+                    self.total += Bottoms_purchases
+                    self.ae_store()
+                Bottoms_cart.append(bottoms_choice)
+                
+            elif user_choice == Accessories:
+                print(Accessories_prices, '\n')
+                accessories_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if accessories_choice != 'done':
+                    Accessories_purchases += Accessories_prices[accessories_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Accessories_cart, '\n')
+                    print('The amount you purchased on accessories is: $',Accessories_purchases, '\n')
+                    self.total += Accessories_purchases
+                    self.ae_store()
+                Accessories_cart.append(accessories_choice)
+        
+        print('Thanks for shopping at American Eagle. Your total came out to be: $',self.total, 'Come again!' '\n')
+        self.user_choice()        
             
 
 instance = Mall()
