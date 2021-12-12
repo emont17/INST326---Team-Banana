@@ -47,6 +47,7 @@ class Mall:
                 print()
             elif choice == self.american_Eagle:
                 print('You are now in American Eagle, shop away!')
+                self.ae_store()
                 print()
             elif choice == self.quit:
                 print('You have left the Mall, have a great day!')
