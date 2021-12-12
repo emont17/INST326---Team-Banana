@@ -1,7 +1,8 @@
-"""These functions will set up a menu for user to shop at various store in the mall."""
+"""The Mall class will allow a user to shop at various stores"""
 class Mall:
     """Mall class creates mall for user to shop in"""
     def totals(self):
+        """This method creates totals for each store"""
         self.nike_total = 0
         self.dicks_total = 0
         self.bass_Pro_Shops_total = 0
@@ -63,6 +64,7 @@ class Mall:
     def nike_store(self):
         """
         A method to allow the shopper to shop in specific departements each store offers.
+        
         Returns:
             shoe_cart (str): the list of shoe products purchased
             shoe_purchases (float): the total cost of shoe products purchased
@@ -147,9 +149,16 @@ class Mall:
     def dicks_store(self):
         """
         A method to allow the shopper to shop in specific departements each store offers.
+        
         Returns:
-            
+            Apparel_cart (str): the list of apparel products purchased
+            Apparel_purchases (float): the total cost of apparel products purchased
+            Sport_cart (str): the list of sport products purchased
+            Sport_purchases (float): the total cost of sport products purchased
+            Outdoor_cart (str): the list of outdoor products purchased
+            Outdoor_purchases (float): the total cost of outdoor products purchased
         """
+            
         Apparel = 1
         Sport = 2
         Outdoors = 3
@@ -226,8 +235,14 @@ class Mall:
     def bps_store(self):
         """
         A method to allow the shopper to shop in specific departements each store offers.
+        
         Returns:
-            
+            Fishing_cart (str): the list of fishing products purchased
+            Fishing_purchases (float): the total cost of fishing products purchased
+            Hunting_cart (str): the list of hunting products purchased
+            Hunting_purchases (float): the total cost of hunting products purchased
+            Camping_cart (str): the list of camping products purchased
+            Camping_purchases (float): the total cost of camping products purchased 
         """
         Fishing = 1
         Hunting = 2
@@ -302,7 +317,14 @@ class Mall:
     def macys_store(self):
         """
         A method to allow the shopper to shop in specific departements each store offers.
+        
         Returns:
+            Footwear_cart (str): the list of footwear products purchased
+            Footwear_purchases (float): the total cost of footwear products purchased
+            Designer_cart (str): the list of designer products purchased
+            Designer_purchases (float): the total cost of designer products purchased
+            Jewelry_cart (str): the list of jewelry products purchased
+            Jewelry_purchases (float): the total cost of jewelry products purchased 
             
         """
         Footwear = 1
@@ -378,8 +400,14 @@ class Mall:
     def ae_store(self):
         """
         A method to allow the shopper to shop in specific departements each store offers.
+        
         Returns:
-            
+            Tops_cart (str): the list of tops products purchased
+            Tops_purchases (float): the total cost of tops products purchased
+            Bottoms_cart (str): the list of bottoms products purchased
+            Bottoms_purchases (float): the total cost of bottoms products purchased
+            Accessories_cart (str): the list of accessory products purchased
+            Accessories_purchases (float): the total cost of accessory products purchased 
         """
         Tops = 1
         Bottoms = 2
@@ -456,4 +484,5 @@ class Mall:
 instance = Mall()
 instance.totals()
 instance.user_choice()
+
 
