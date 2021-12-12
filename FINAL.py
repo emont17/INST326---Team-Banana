@@ -55,7 +55,7 @@ class Mall:
                 self.ae_store()
                 print()
             elif choice == self.quit:
-                print('You have left the Mall, you spent a total of $', self.total, 'have a great day!')
+                print('You have left the Mall, have a great day!')
                 quit()
             else:
                 print('ERROR INVALID SELECTION')
@@ -484,5 +484,3 @@ class Mall:
 instance = Mall()
 instance.totals()
 instance.user_choice()
-
-
