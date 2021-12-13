@@ -143,7 +143,7 @@ class Mall:
                     self.nike_store()
                 accessories_cart.append(accessories_choice)
         
-        print('Thanks for shopping at Nike. Your total came out to be: $',self.nike_total, 'Come again!' '\n')
+        print('Thanks for shopping at Nike. Your total came out to be: $',round(self.nike_total, 2), 'Come again!' '\n')
         self.user_choice()
         
     def dicks_store(self):
@@ -229,7 +229,7 @@ class Mall:
                     self.dicks_store()
                 Outdoors_cart.append(outdoors_choice)
         
-        print('Thanks for shopping at Dicks. Your total came out to be: $',self.dicks_total, 'Come again!' '\n')
+        print('Thanks for shopping at Dicks. Your total came out to be: $',round(self.dicks_total, 2), 'Come again!' '\n')
         self.user_choice()
         
     def bps_store(self):
@@ -311,7 +311,7 @@ class Mall:
                     self.bps_store()
                 Camping_cart.append(camping_choice)
         
-        print('Thanks for shopping at Bass Pro Shops. Your total came out to be: $',self.bass_Pro_Shops_total, 'Come again!' '\n')
+        print('Thanks for shopping at Bass Pro Shops. Your total came out to be: $',round(self.bass_Pro_Shops_total, 2), 'Come again!' '\n')
         self.user_choice()
 
     def macys_store(self):
@@ -394,7 +394,7 @@ class Mall:
                     self.macys_store()
                 Jewelry_cart.append(jewelry_choice)
         
-        print('Thanks for shopping at Macys. Your total came out to be: $',self.macys_total, 'Come again!' '\n')
+        print('Thanks for shopping at Macys. Your total came out to be: $',round(self.macys_total, 2), 'Come again!' '\n')
         self.user_choice()
         
     def ae_store(self):
@@ -476,7 +476,7 @@ class Mall:
                     self.ae_store()
                 Accessories_cart.append(accessories_choice)
         
-        print('Thanks for shopping at American Eagle. Your total came out to be: $',self.ae_total, 'Come again!' '\n')
+        print('Thanks for shopping at American Eagle. Your total came out to be: $',round(self.ae_total, 2), 'Come again!' '\n')
         self.user_choice()
         
     
