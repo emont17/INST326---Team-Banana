@@ -1,3 +1,5 @@
+import random
+
 """The Mall class will allow a user to shop at various stores"""
 class Mall:
     """Mall class creates mall for user to shop in"""
@@ -8,6 +10,11 @@ class Mall:
         self.bass_Pro_Shops_total = 0
         self.macys_total = 0
         self.ae_total = 0 
+        
+    def discounts(self):
+        self.discount = random.randint(5, 25)
+        self.discount_amount = self.discount / 100
+        
         
     def menu(self):
         """This method shows mall directory to user"""
@@ -56,6 +63,7 @@ class Mall:
                 print()
             elif choice == self.quit:
                 print('You have left the Mall, have a great day!')
+                print()
                 quit()
             else:
                 print('ERROR INVALID SELECTION')
@@ -100,17 +108,22 @@ class Mall:
 
         user_choice = int(input('Welcome to Nike! Which of our departments above would you like to shop in? '))
         print()
+        
 
         while user_choice != Exit:
             if user_choice == Footwear:
                 print(shoe_prices, '\n')
                 shoe_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                print()
+                if shoe_choice == "Soccer cleats":
+                    print("Congratulations! You have just recieved a", self.discount,"%, your discount will be applied at checkout.")
+                    print()
                 if shoe_choice != 'done':
                     shoe_purchases += shoe_prices[shoe_choice]
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(shoe_cart, '\n')
-                    print('The amount you purchased on shoes is: $',shoe_purchases, '\n')
+                    print('The amount you purchased on shoes is: $',round(shoe_purchases, 2),'\n''Your', self.discount,'% discount will be applied at checkout.' '\n')
                     self.nike_total += shoe_purchases
                     self.nike_store()
                 shoe_cart.append(shoe_choice)
@@ -124,7 +137,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(outerwear_cart, '\n')
-                    print('The amount you purchased on outerwear is: $',outerwear_purchases, '\n')
+                    print('The amount you purchased on outerwear is: $',round(outerwear_purchases, 2),  '\n')
                     self.nike_total += outerwear_purchases
                     self.nike_store()
                 outerwear_cart.append(outerwear_choice)
@@ -138,12 +151,16 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(accessories_cart, '\n')
-                    print('The amount you purchased on accessories is: $',accessories_purchases, '\n')
+                    print('The amount you purchased on accessories is: $',round(accessories_purchases, 2), '\n')
                     self.nike_total += accessories_purchases
                     self.nike_store()
                 accessories_cart.append(accessories_choice)
         
-        print('Thanks for shopping at Nike. Your total came out to be: $',round(self.nike_total, 2), 'Come again!' '\n')
+        
+        self.discount_total = self.discount_amount * self.nike_total
+        self.final_price = self.nike_total - self.discount_total  
+         
+        print('Thanks for shopping at Nike. Your total came out to be: $',round(self.final_price, 2),'\n''You saved a total of: $',round(self.discount_total, 2),'\n' 'Come again!' '\n')
         self.user_choice()
         
     def dicks_store(self):
@@ -196,7 +213,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Apparel_cart, '\n')
-                    print('The amount you purchased on apparel is: $',Apparel_purchases, '\n')
+                    print('The amount you purchased on apparel is: $',round(Apparel_purchases, 2), '\n')
                     self.dicks_total += Apparel_purchases
                     self.dicks_store()
                 Apparel_cart.append(apparel_choice)
@@ -210,7 +227,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Sport_cart, '\n')
-                    print('The amount you purchased on sport accessories is: $',Sport_purchases, '\n')
+                    print('The amount you purchased on sport accessories is: $',round(Sport_purchases, 2), '\n')
                     self.dicks_total += Sport_purchases
                     self.dicks_store()
                 Sport_cart.append(sport_choice)
@@ -224,7 +241,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Outdoors_cart, '\n')
-                    print('The amount you purchased on outdoor gear is: $',Outdoors_purchases, '\n')
+                    print('The amount you purchased on outdoor gear is: $',round(Outdoors_purchases, 2), '\n')
                     self.dicks_total += Outdoors_purchases
                     self.dicks_store()
                 Outdoors_cart.append(outdoors_choice)
@@ -280,7 +297,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Fishing_cart, '\n')
-                    print('The amount you purchased on fishing gear is: $',Fishing_purchases, '\n')
+                    print('The amount you purchased on fishing gear is: $',round(Fishing_purchases, 2), '\n')
                     self.bass_Pro_Shops_total += Fishing_purchases
                     self.bps_store()
                 Fishing_cart.append(fishing_choice)
@@ -293,7 +310,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Hunting_cart, '\n')
-                    print('The amount you purchased on hunting gear is: $',Hunting_purchases, '\n')
+                    print('The amount you purchased on hunting gear is: $',round(Hunting_purchases, 2), '\n')
                     self.bass_Pro_Shops_total += Hunting_purchases
                     self.dicks_store()
                 Hunting_cart.append(hunting_choice)
@@ -306,7 +323,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Camping_cart, '\n')
-                    print('The amount you purchased on camping gear is: $',Camping_purchases, '\n')
+                    print('The amount you purchased on camping gear is: $',round(Camping_purchases, 2), '\n')
                     self.bass_Pro_Shops_total += Camping_purchases
                     self.bps_store()
                 Camping_cart.append(camping_choice)
@@ -363,7 +380,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Footwear_cart, '\n')
-                    print('The amount you purchased on footwear is: $',Footwear_purchases, '\n')
+                    print('The amount you purchased on footwear is: $',round(Footwear_purchases, 2), '\n')
                     self.macys_total += Footwear_purchases
                     self.macys_store()
                 Footwear_cart.append(footwear_choice)
@@ -376,7 +393,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Designer_cart, '\n')
-                    print('The amount you purchased on designer accessories is: $',Designer_purchases, '\n')
+                    print('The amount you purchased on designer accessories is: $',round(Designer_purchases, 2), '\n')
                     self.macys_total += Designer_purchases
                     self.macys_store()
                 Designer_cart.append(designer_choice)
@@ -389,7 +406,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Jewelry_cart, '\n')
-                    print('The amount you purchased on jewelry is: $',Jewelry_purchases, '\n')
+                    print('The amount you purchased on jewelry is: $',round(Jewelry_purchases, 2), '\n')
                     self.macys_total += Jewelry_purchases
                     self.macys_store()
                 Jewelry_cart.append(jewelry_choice)
@@ -445,7 +462,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Tops_cart, '\n')
-                    print('The amount you purchased on tops is: $',Tops_purchases, '\n')
+                    print('The amount you purchased on tops is: $',round(Tops_purchases, 2), '\n')
                     self.ae_total += Tops_purchases
                     self.ae_store()
                 Tops_cart.append(tops_choice)
@@ -458,7 +475,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Bottoms_cart, '\n')
-                    print('The amount you purchased on bottoms is: $',Bottoms_purchases, '\n')
+                    print('The amount you purchased on bottoms is: $',round(Bottoms_purchases, 2), '\n')
                     self.ae_total += Bottoms_purchases
                     self.ae_store()
                 Bottoms_cart.append(bottoms_choice)
@@ -471,7 +488,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(Accessories_cart, '\n')
-                    print('The amount you purchased on accessories is: $',Accessories_purchases, '\n')
+                    print('The amount you purchased on accessories is: $',round(Accessories_purchases, 2),'\n')
                     self.ae_total += Accessories_purchases
                     self.ae_store()
                 Accessories_cart.append(accessories_choice)
@@ -483,4 +500,5 @@ class Mall:
 
 instance = Mall()
 instance.totals()
+instance.discounts()
 instance.user_choice()
