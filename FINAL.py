@@ -12,9 +12,20 @@ class Mall:
         self.ae_total = 0 
         
     def discounts(self):
-        self.discount = random.randint(5, 25)
-        self.discount_amount = self.discount / 100
+        self.nike_discount = random.randint(5, 25)
+        self.discount_amount_nike = self.nike_discount / 100
         
+        self.dicks_discount = random.randint(10,30)
+        self.discount_amount__dicks = self.dicks_discount / 100
+        
+        self.bass_pro_discount = random.randint(10,15)
+        self.discount_amount_bass_pro = self.bass_pro_discount / 100
+        
+        self.macys_discount = random.randint(20,50)
+        self.discount_amount_macys = self.macys_discount / 100
+        
+        self.ae_discount = random.randint(5,10)
+        self.discount_amount_ae = self.ae_discount / 100
         
     def menu(self):
         """This method shows mall directory to user"""
@@ -116,14 +127,14 @@ class Mall:
                 shoe_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
                 print()
                 if shoe_choice == "Soccer cleats":
-                    print("Congratulations! You have just recieved a", self.discount,"%, your discount will be applied at checkout.")
+                    print("Congratulations! You have just recieved a", self.nike_discount,"%, your discount will be applied at checkout.")
                     print()
                 if shoe_choice != 'done':
                     shoe_purchases += shoe_prices[shoe_choice]
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(shoe_cart, '\n')
-                    print('The amount you purchased on shoes is: $',round(shoe_purchases, 2),'\n''Your', self.discount,'% discount will be applied at checkout.' '\n')
+                    print('The amount you purchased on shoes is: $',round(shoe_purchases, 2),'\n''Your', self.nike_discount,'% discount will be applied at checkout.' '\n')
                     self.nike_total += shoe_purchases
                     self.nike_store()
                 shoe_cart.append(shoe_choice)
@@ -137,7 +148,7 @@ class Mall:
                 else:
                     print('Your cart consists of the following items:' '\n')
                     print(outerwear_cart, '\n')
-                    print('The amount you purchased on outerwear is: $',round(outerwear_purchases, 2),  '\n')
+                    print('The amount you purchased on outerwear is: $',round(outerwear_purchases, 2), '\n')
                     self.nike_total += outerwear_purchases
                     self.nike_store()
                 outerwear_cart.append(outerwear_choice)
@@ -157,10 +168,11 @@ class Mall:
                 accessories_cart.append(accessories_choice)
         
         
-        self.discount_total = self.discount_amount * self.nike_total
-        self.final_price = self.nike_total - self.discount_total  
+        self.discount_total_nike = self.discount_amount_nike * self.nike_total
+        self.final_price_nike = self.nike_total - self.discount_total_nike  
          
-        print('Thanks for shopping at Nike. Your total came out to be: $',round(self.final_price, 2),'\n''You saved a total of: $',round(self.discount_total, 2),'\n' 'Come again!' '\n')
+        print('Thanks for shopping at Nike. Your total came out to be: $',round(self.final_price_nike, 2),'\n')
+        print('You saved a total of: $',round(self.discount_total_nike, 2),'\n' 'Come again!' '\n')
         self.user_choice()
         
     def dicks_store(self):
@@ -246,7 +258,15 @@ class Mall:
                     self.dicks_store()
                 Outdoors_cart.append(outdoors_choice)
         
-        print('Thanks for shopping at Dicks. Your total came out to be: $',round(self.dicks_total, 2), 'Come again!' '\n')
+        if self.dicks_total >= 100:
+            self.discount_total_dicks = self.discount_amount__dicks * self.dicks_total
+            self.final_price_dicks = self.dicks_total - self.discount_total_dicks 
+        
+        print('Thanks for shopping at Dicks. Your total came out to be: $',round(self.dicks_total, 2), '\n')
+        print('You have spent over $100 at Dicks, you have been rewarded a', self.dicks_discount,'% discount!')
+        print('You saved a total of: $', round(self.discount_total_dicks, 2))
+        print('Your new total is now: $', round(self.final_price_dicks, 2))
+        print()
         self.user_choice()
         
     def bps_store(self):
