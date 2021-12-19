@@ -8,3 +8,5 @@
 #####   Evan - completed totals, discounts, menu, user_choice methods
 #####   Bennett - completed nike_store, dicks_store, bps_store methods
 #####   Eme-Claudia - completed macys_store, ae_store methods
+#### Sources:
+#####   Only went to office hours
