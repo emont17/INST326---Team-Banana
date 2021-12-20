@@ -103,7 +103,6 @@ class Mall:
         print('4) Exit')
         print()
     
-
         shoe_prices = {'Running shoes': 99.99, 'Soccer cleats': 199.99, 'Skateboard shoes': 74.99, 'Leisure shoes': 49.99}
         shoe_purchases = 0
         shoe_cart = []
@@ -116,11 +115,9 @@ class Mall:
         accessories_purchases = 0
         accessories_cart = []
 
-
         user_choice = int(input('Welcome to Nike! Which of our departments above would you like to shop in? '))
         print()
         
-
         while user_choice != Exit:
             if user_choice == Footwear:
                 print(shoe_prices, '\n')
@@ -139,7 +136,6 @@ class Mall:
                     self.nike_store()
                 shoe_cart.append(shoe_choice)
             
-            
             elif user_choice == Outerwear:
                 print(outerwear_prices, '\n')
                 outerwear_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
@@ -153,7 +149,6 @@ class Mall:
                     self.nike_store()
                 outerwear_cart.append(outerwear_choice)
                 
-                
             elif user_choice == Accessories:
                 print(accessories_prices, '\n')
                 accessories_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
@@ -166,8 +161,7 @@ class Mall:
                     self.nike_total += accessories_purchases
                     self.nike_store()
                 accessories_cart.append(accessories_choice)
-        
-        
+            
         self.discount_total_nike = self.discount_amount_nike * self.nike_total
         self.final_price_nike = self.nike_total - self.discount_total_nike  
          
