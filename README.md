@@ -5,7 +5,7 @@
 ##### Our program can be ran from the command line by typing the following exactly as shown if on mac or linux (python3 "FINAL.py") otherwise (python "FINAL.py")
 ##### Upon running our program the user will be prompted with the directory of the mall. The user can then select a store to go into by typing the stores number accompanied by it. The user will then be prompted with another directory of what department in store they would like to go into to shop. After selecting a department the user can then add items to their cart by typing the item exactly as shown. When the user types an item and hits enter they will see that they have added an item to their cart and will be prompted to do the same thing or exit the department. If they wish to exit then they type "done". By completeing these steps the user can go into any department and buy whatever item they like. When they decide to leave the store they will be shown the items bought along with a total of items bought and discounts. The user can complete all of these steps to shop at various stores and when they are ready they can leave the mall.
 #### Attributions:  
-#####   Evan - completed totals, discounts, menu, user_choice methods
+#####   Evan - completed totals (sets each stores total as attributes), discounts (Randomly selects a discount for each store and turns it into a percentage), menu (allows user to select a store), user_choice (Allows each store to run based on menu selection)
 #####   Bennett - completed all store methods
 #####   Eme-Claudia - 
 #### Sources:
