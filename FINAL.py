@@ -544,7 +544,7 @@ class Mall:
     
     def beauty_store(self):
 	        """
-	        A method to allow the shopper to shop in specific departements each store offers.
+	        A method to allow the shopper to shop in specific departments each store offers.
 	        
 	        Returns:
 	            makeup_cart (str): the list of makeup products purchased
