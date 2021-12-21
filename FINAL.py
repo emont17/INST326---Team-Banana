@@ -542,6 +542,101 @@ class Mall:
         print()
         self.user_choice()
     
+    def beauty_store(self):
+	        """
+	        A method to allow the shopper to shop in specific departements each store offers.
+	        
+	        Returns:
+	            makeup_cart (str): the list of makeup products purchased
+	            makeup_purchases (float): the total cost of makeup products purchased
+	            fragrance_cart (str): the list of fragrance products purchased
+	            fragrance_purchases (float): the total cost of fragrance products purchased
+	            skincare_cart (str): the list of accessory products purchased
+	            skincare_purchases (float): the total cost of accessory products purchased
+	        """
+	        Makeup = 1
+	        Fragrance = 2
+	        Skincare = 3
+	        Exit = 4
+	
+
+	        print('1) Makeup')
+	        print('2) Fragrance')
+	        print('3) Skincare')
+	        print('4) Exit')
+	        print()
+	    
+	        makeup_prices = {'foundation': 30.00, 'concealer': 19.99, 'powder': 7.99, 'primer': 3.99}
+	        makeup_purchases = 0
+	        makeup_cart = []
+	
+
+	        fragrance_prices = {'coco channel noir': 135.00, 'tom ford soeil blanc': 365.00, 'tiffany & co Love': 118.00, 'lancome idol': 150.00}
+	        fragrance_purchases = 0
+	        fragrance_cart = []
+	
+
+	        skincare_prices = {'body exfoliator': 22.50, 'deodorant': 9.99, 'face cleanser': 14.99, 'face toner': 12.99}
+	        skincare_purchases = 0
+	        skincare_cart = []
+	
+
+	        user_choice = int(input('Welcome to Beauty! Which of our departments above would you like to shop in? '))
+	        print()
+	        
+	        while user_choice != Exit:
+	            if user_choice == Makeup:
+	                print(makeup_prices, '\n')
+	                makeup_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+	                print()
+	                if makeup_choice == "foundation":
+	                    print("Congratulations! You have just recieved a", self.beauty_discount,"%, your discount will be applied at checkout.")
+	                    print()
+	                if makeup_choice != 'done':
+	                    makeup_purchases += makeup_prices[makeup_choice]
+	                else:
+	                    print('Your cart consists of the following items:' '\n')
+	                    print(makeup_cart, '\n')
+	                    print('The amount you purchased on makeups is: $',round(makeup_purchases, 2),'\n''Your', self.beauty_discount,'% discount will be applied at checkout.' '\n')
+	                    self.beauty_total += makeup_purchases
+	                    self.beauty_store()
+	                makeup_cart.append(makeup_choice)
+	            
+	            elif user_choice == Fragrance:
+	                print(fragrance_prices, '\n')
+	                fragrance_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+	                if fragrance_choice != 'done':
+	                    fragrance_purchases += fragrance_prices[fragrance_choice]
+	                else:
+	                    print('Your cart consists of the following items:' '\n')
+	                    print(fragrance_cart, '\n')
+	                    print('The amount you purchased on fragrance is: $',round(fragrance_purchases, 2), '\n')
+	                    self.beauty_total += fragrance_purchases
+	                    self.beauty_store()
+	                fragrance_cart.append(fragrance_choice)
+	                
+	            elif user_choice == Skincare:
+	                print(skincare_prices, '\n')
+	                skincare_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+	                if skincare_choice != 'done':
+	                    skincare_purchases += skincare_prices[skincare_choice]
+	                else:
+	                    print('Your cart consists of the following items:' '\n')
+	                    print(skincare_cart, '\n')
+	                    print('The amount you purchased on skincare is: $',round(skincare_purchases, 2), '\n')
+	                    self.beauty_total += skincare_purchases
+	                    self.beauty_store()
+	                skincare_cart.append(skincare_choice)
+	            
+	        self.discount_total_beauty = self.discount_amount_beauty * self.beauty_total
+	        self.final_price_beauty = self.beauty_total - self.discount_total_beauty  
+	         
+	        print('Thanks for shopping at Beauty Store. Your total came out to be: $',round(self.final_price_beauty, 2))
+	        print('You saved a total of: $',round(self.discount_total_beauty, 2),'\n' 'Come again!' '\n')
+	        self.user_choice()
+
+
+    
 instance = Mall()
 instance.totals()
 instance.discounts()
