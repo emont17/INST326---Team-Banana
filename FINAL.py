@@ -327,7 +327,7 @@ class Mall:
                     print(Hunting_cart, '\n')
                     print('The amount you purchased on hunting gear is: $',round(Hunting_purchases, 2), '\n')
                     self.bass_pro_total += Hunting_purchases
-                    self.dicks_store()
+                    self.bps_store()
                 Hunting_cart.append(hunting_choice)
                 
             elif user_choice == Camping:
