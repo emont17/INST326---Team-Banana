@@ -9,14 +9,19 @@ class Mall:
         self.dicks_total = 0
         self.bass_pro_total = 0
         self.macys_total = 0
-        self.ae_total = 0 
+        self.ae_total = 0
+        self.beauty_total = 0
+        self.fashion_total = 0
         
     def discounts(self):
+	"""
+	A method that allows discounts to be applied to cart depending on products purchased/amount spent.
+	"""
         self.nike_discount = random.randint(5, 25)
         self.discount_amount_nike = self.nike_discount / 100
         
         self.dicks_discount = random.randint(10,30)
-        self.discount_amount__dicks = self.dicks_discount / 100
+        self.discount_amount_dicks = self.dicks_discount / 100
         
         self.bass_pro_discount = random.randint(10,15)
         self.discount_amount_bass_pro = self.bass_pro_discount / 100
@@ -26,6 +31,12 @@ class Mall:
         
         self.ae_discount = random.randint(5,10)
         self.discount_amount_ae = self.ae_discount / 100
+
+        self.beauty_discount = random.randint(10, 20)
+        self.discount_amount_beauty = self.beauty_discount / 100
+
+        self.fashion_discount = random.randint(7, 23)
+        self.discount_amount_fashion = self.fashion_discount / 100
         
     def menu(self):
         """This method shows mall directory to user"""
@@ -34,7 +45,9 @@ class Mall:
         self.bass_Pro_Shops = 3
         self.macys = 4
         self.american_Eagle = 5
-        self.quit = 6
+        self.beauty = 6
+        self.fashion_Nova = 7
+        self.quit = 8
         
         print('     MALL DIRECTORY')
         print('1) Nike')
@@ -42,7 +55,9 @@ class Mall:
         print('3) Bass Pro Shops')
         print('4) Macys')
         print('5) American Eagle')
-        print('6) Leave Mall') 
+        print('6) Beauty Store')
+        print('7) Fashionnova')
+        print('8) Leave Mall') 
         print()
 
     def user_choice(self):
@@ -71,6 +86,14 @@ class Mall:
             elif choice == self.american_Eagle:
                 print('You are now in American Eagle, shop away!')
                 self.ae_store()
+                print()
+            elif choice == self.beauty:
+                print('You are now in the Beauty Store, shop away!')
+                self.beauty_store()
+                print()
+            elif choice == self.fashion_Nova:
+                print('You are now in FashionNova, shop away!')
+                self.fashionnova_store()
                 print()
             elif choice == self.quit:
                 print('You have left the Mall, have a great day!')
@@ -124,7 +147,7 @@ class Mall:
                 shoe_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
                 print()
                 if shoe_choice == "Soccer cleats":
-                    print("Congratulations! You have just recieved a", self.nike_discount,"%, your discount will be applied at checkout.")
+                    print("Congratulations! You have just recieved a discount of", self.nike_discount,"%, it will be applied at checkout.")
                     print()
                 if shoe_choice != 'done':
                     shoe_purchases += shoe_prices[shoe_choice]
@@ -257,7 +280,7 @@ class Mall:
             self.final_price_dicks = self.dicks_total - self.discount_total_dicks 
         
         print('Thanks for shopping at Dicks. Your total came out to be: $',round(self.dicks_total, 2))
-        print('You have spent over $100 at Dicks, you have been rewarded a', self.dicks_discount,'% discount!')
+        print('You have spent over $100 at Dicks, you have been rewarded a discount of', self.dicks_discount,'%!')
         print('You saved a total of: $', round(self.discount_total_dicks, 2))
         print('Your new total is now: $', round(self.final_price_dicks, 2))
         print("Come again!")
@@ -335,7 +358,7 @@ class Mall:
                 camping_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
                 print()
                 if camping_choice == "Tent":
-                    print("Congratulations! You have just recieved a", self.bass_pro_discount,"%, your discount will be applied at checkout.")
+                    print("Congratulations! You have just recieved a discount of ", self.bass_pro_discount,"%, it will be applied at checkout.")
                     print()
                 if camping_choice != 'done':
                     Camping_purchases += Camping_prices[camping_choice]
@@ -442,7 +465,7 @@ class Mall:
             self.final_price_macys = self.macys_total - self.discount_total_macys 
         
         print('Thanks for shopping at Macys. Your total came out to be: $',round(self.macys_total, 2))
-        print('You have spent over $200 at Macys, you have been rewarded a', self.macys_discount,'% discount!')
+        print('You have spent over $200 at Macys, you have been rewarded a discount of', self.macys_discount,'%!')
         print('You saved a total of: $', round(self.discount_total_macys, 2))
         print('Your new total is now: $', round(self.final_price_macys, 2))
         print('Come again!')
@@ -504,10 +527,10 @@ class Mall:
             
             elif user_choice == Bottoms:
                 print(Bottoms_prices, '\n')
-                bottoms_choice = input('Which items would you like to buy? Or are you "done"?')
+                bottoms_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
                 print()
                 if bottoms_choice == "Jeans":
-                    print("Congratulations! You have just recieved a", self.ae_discount,"%, your discount will be applied at checkout.")
+                    print("Congratulations! You have just recieved a discount of ", self.ae_discount,"%, it will be applied at checkout.")
                     print()
                 if bottoms_choice != 'done':
                     Bottoms_purchases += Bottoms_prices[bottoms_choice]
@@ -541,194 +564,192 @@ class Mall:
         print('Come again!')
         print()
         self.user_choice()
-    
+
     def beauty_store(self):
-	        """
-	        A method to allow the shopper to shop in specific departments each store offers.
-	        
-	        Returns:
-	            makeup_cart (str): the list of makeup products purchased
-	            makeup_purchases (float): the total cost of makeup products purchased
-	            fragrance_cart (str): the list of fragrance products purchased
-	            fragrance_purchases (float): the total cost of fragrance products purchased
-	            skincare_cart (str): the list of accessory products purchased
-	            skincare_purchases (float): the total cost of accessory products purchased
-	        """
-	        Makeup = 1
-	        Fragrance = 2
-	        Skincare = 3
-	        Exit = 4
-	
-
-	        print('1) Makeup')
-	        print('2) Fragrance')
-	        print('3) Skincare')
-	        print('4) Exit')
-	        print()
-	    
-	        makeup_prices = {'foundation': 30.00, 'concealer': 19.99, 'powder': 7.99, 'primer': 3.99}
-	        makeup_purchases = 0
-	        makeup_cart = []
-	
-
-	        fragrance_prices = {'coco channel noir': 135.00, 'tom ford soeil blanc': 365.00, 'tiffany & co Love': 118.00, 'lancome idol': 150.00}
-	        fragrance_purchases = 0
-	        fragrance_cart = []
-	
-
-	        skincare_prices = {'body exfoliator': 22.50, 'deodorant': 9.99, 'face cleanser': 14.99, 'face toner': 12.99}
-	        skincare_purchases = 0
-	        skincare_cart = []
-	
-
-	        user_choice = int(input('Welcome to Beauty! Which of our departments above would you like to shop in? '))
-	        print()
-	        
-	        while user_choice != Exit:
-	            if user_choice == Makeup:
-	                print(makeup_prices, '\n')
-	                makeup_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-	                print()
-	                if makeup_choice == "foundation":
-	                    print("Congratulations! You have just recieved a", self.beauty_discount,"%, your discount will be applied at checkout.")
-	                    print()
-	                if makeup_choice != 'done':
-	                    makeup_purchases += makeup_prices[makeup_choice]
-	                else:
-	                    print('Your cart consists of the following items:' '\n')
-	                    print(makeup_cart, '\n')
-	                    print('The amount you purchased on makeups is: $',round(makeup_purchases, 2),'\n''Your', self.beauty_discount,'% discount will be applied at checkout.' '\n')
-	                    self.beauty_total += makeup_purchases
-	                    self.beauty_store()
-	                makeup_cart.append(makeup_choice)
-	            
-	            elif user_choice == Fragrance:
-	                print(fragrance_prices, '\n')
-	                fragrance_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-	                if fragrance_choice != 'done':
-	                    fragrance_purchases += fragrance_prices[fragrance_choice]
-	                else:
-	                    print('Your cart consists of the following items:' '\n')
-	                    print(fragrance_cart, '\n')
-	                    print('The amount you purchased on fragrance is: $',round(fragrance_purchases, 2), '\n')
-	                    self.beauty_total += fragrance_purchases
-	                    self.beauty_store()
-	                fragrance_cart.append(fragrance_choice)
-	                
-	            elif user_choice == Skincare:
-	                print(skincare_prices, '\n')
-	                skincare_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-	                if skincare_choice != 'done':
-	                    skincare_purchases += skincare_prices[skincare_choice]
-	                else:
-	                    print('Your cart consists of the following items:' '\n')
-	                    print(skincare_cart, '\n')
-	                    print('The amount you purchased on skincare is: $',round(skincare_purchases, 2), '\n')
-	                    self.beauty_total += skincare_purchases
-	                    self.beauty_store()
-	                skincare_cart.append(skincare_choice)
-	            
-	        self.discount_total_beauty = self.discount_amount_beauty * self.beauty_total
-	        self.final_price_beauty = self.beauty_total - self.discount_total_beauty  
-	         
-	        print('Thanks for shopping at Beauty Store. Your total came out to be: $',round(self.final_price_beauty, 2))
-	        print('You saved a total of: $',round(self.discount_total_beauty, 2),'\n' 'Come again!' '\n')
-	        self.user_choice()
-	
-	def fashionnova_store(self):
-            """
-            A method to allow the shopper to shop in specific departments each store offers.
-            
-            Returns:
-                dresses_cart (str): the list of dresses products purchased
-                dresses_purchases (float): the total cost of dresses products purchased
-                sweaters_cart (str): the list of sweaters products purchased
-                sweaters_purchases (float): the total cost of sweaters products purchased
-                coats_cart (str): the list of accessory products purchased
-                coats_purchases (float): the total cost of accessory products purchased
-            """
-            Dresses = 1
-            Sweaters = 2
-            Coats = 3
-            Exit = 4
-    
-
-            print('1) Dresses')
-            print('2) Sweaters')
-            print('3) Coats')
-            print('4) Exit')
-            print()
+        """
+        A method to allow the shopper to shop in specific departements each store offers.
         
-            dresses_prices = {'sundress': 35.00, 'midi dress': 19.99, 'maxi dress': 17.99, 'mini dress': 13.49}
-            dresses_purchases = 0
-            dresses_cart = []
-    
+        Returns:
+            Makeup_cart (str): the list of makeup products purchased
+            Makeup_purchases (float): the total cost of makeup products purchased
+            Fragrance_cart (str): the list of fragrance products purchased
+            Fragrance_purchases (float): the total cost of fragrance products purchased
+            Skincare_cart (str): the list of skincare products purchased
+            Skincare_purchases (float): the total cost of skincare products purchased 
+        """
+        Makeup = 1
+        Fragrance = 2
+        Skincare = 3
+        Exit = 4
 
-            sweaters_prices = {'cozy sweater set': 54.00, 'long sweater dress': 39.00, 'christmas sweater': 30.00, 'crop sweater': 15.00}
-            sweaters_purchases = 0
-            sweaters_cart = []
-    
+        print('1) Makeup')
+        print('2) Fragrance')
+        print('3) Skincare')
+        print('4) Exit')
+        print()
 
-            coats_prices = {'trench coat': 49.50, 'faux fur coat': 109.99, 'Blazer': 30.99, 'double breatsed coat': 120.49}
-            coats_purchases = 0
-            coats_cart = []
-    
+        Makeup_prices = {'Foundation': 30.00, 'Concealer': 19.99, 'Powder': 7.99, 'Primer': 3.99}
+        Makeup_purchases = 0
+        Makeup_cart = []
 
-            user_choice = int(input('Welcome to Fashionnova! Which of our departments above would you like to shop in? '))
-            print()
+        Fragrance_prices = {'oco channel noir': 135.00, 'tom ford soeil blanc': 365.00, 'tiffany & co Love': 118.00, 'lancome idol': 150.00}
+        Fragrance_purchases = 0
+        Fragrance_cart = []
+
+        Skincare_prices = {'body exfoliator': 22.50, 'deodorant': 9.99, 'face cleanser': 14.99, 'face toner': 12.99}
+        Skincare_purchases = 0
+        Skincare_cart = []
+
+
+        user_choice = int(input('Welcome to the Beauty Store! Which of our departments above would you like to shop in? '))
+        print()
+
+        while user_choice != Exit:
+            if user_choice == Makeup:
+                print(Makeup_prices, '\n')
+                makeup_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if makeup_choice != 'done':
+                    Makeup_purchases += Makeup_prices[makeup_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Makeup_cart, '\n')
+                    print('The amount you purchased on makeup is: $',round(Makeup_purchases, 2), '\n')
+                    self.beauty_total += Makeup_purchases
+                    self.beauty_store()
+                Makeup_cart.append(makeup_choice)
             
-            while user_choice != Exit:
-                if user_choice == Dresses:
-                    print(dresses_prices, '\n')
-                    dresses_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+            elif user_choice == Fragrance:
+                print(Fragrance_prices, '\n')
+                fragrance_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                print()
+                if fragrance_choice == "lancome idol":
+                    print("Congratulations! You have just recieved a discount of ", self.beauty_discount,"%, it will be applied at checkout.")
                     print()
-                    if dresses_choice == "maxi dress":
-                        print("Congratulations! You have just recieved a", self.fashionnova_discount,"%, your discount will be applied at checkout.")
-                        print()
-                    if dresses_choice != 'done':
-                        dresses_purchases += dresses_prices[dresses_choice]
-                    else:
-                        print('Your cart consists of the following items:' '\n')
-                        print(dresses_cart, '\n')
-                        print('The amount you purchased on dressess is: $',round(dresses_purchases, 2),'\n''Your', self.fashionnova_discount,'% discount will be applied at checkout.' '\n')
-                        self.fashionnova_total += dresses_purchases
-                        self.fashionnova_store()
-                    dresses_cart.append(dresses_choice)
+                if fragrance_choice != 'done':
+                    Fragrance_purchases += Fragrance_prices[fragrance_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Fragrance_cart, '\n')
+                    print('The amount you purchased on fragrance is: $',round(Fragrance_purchases, 2))
+                    print('Your',self.beauty_discount,'% will be applied at checkout.')
+                    self.beauty_total += Fragrance_purchases
+                    self.beauty_store()
+                Fragrance_cart.append(fragrance_choice)
                 
-                elif user_choice == Sweaters:
-                    print(sweaters_prices, '\n')
-                    sweaters_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-                    if sweaters_choice != 'done':
-                        sweaters_purchases += sweaters_prices[sweaters_choice]
-                    else:
-                        print('Your cart consists of the following items:' '\n')
-                        print(sweaters_cart, '\n')
-                        print('The amount you purchased on sweaters is: $',round(sweaters_purchases, 2), '\n')
-                        self.fashionnova_total += sweaters_purchases
-                        self.fashionnova_store()
-                    sweaters_cart.append(sweaters_choice)
-                    
-                elif user_choice == Coats:
-                    print(coats_prices, '\n')
-                    coats_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
-                    if coats_choice != 'done':
-                        coats_purchases += coats_prices[coats_choice]
-                    else:
-                        print('Your cart consists of the following items:' '\n')
-                        print(coats_cart, '\n')
-                        print('The amount you purchased on coats is: $',round(coats_purchases, 2), '\n')
-                        self.fashionnova_total += coats_purchases
-                        self.fashionnova_store()
-                    coats_cart.append(coats_choice)
-                
-            self.discount_total_fashionnova = self.discount_amount_fashionnova * self.fashionnova_total
-            self.final_price_fashionnova = self.fashionnova_total - self.discount_total_fashionnova  
-             
-            print('Thanks for shopping at Fashionnova Store. Your total came out to be: $',round(self.final_price_fashionnova, 2))
-            print('You saved a total of: $',round(self.discount_total_fashionnova, 2),'\n' 'Come again!' '\n')
-            self.user_choice()
+            elif user_choice == Skincare:
+                print(Skincare_prices, '\n')
+                skincare_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if skincare_choice != 'done':
+                    Skincare_purchases += Skincare_prices[skincare_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Skincare_cart, '\n')
+                    print('The amount you purchased on skincare is: $',round(Skincare_purchases, 2),'\n')
+                    self.beauty_total += Skincare_purchases
+                    self.beauty_store()
+                Skincare_cart.append(skincare_choice)
+        
+        self.discount_total_beauty = self.discount_amount_beauty * self.beauty_total
+        self.final_price_beauty = self.beauty_total - self.discount_total_beauty
+         
+        print('Thanks for shopping at the Beauty Store. Your total came out to be: $',round(self.final_price_beauty, 2))
+        print('You saved a total of: $',round(self.discount_total_beauty, 2))
+        print('Come again!')
+        print()
+        self.user_choice()
+
+    def fashionnova_store(self):
+        """
+        A method to allow the shopper to shop in specific departements each store offers.
+        
+        Returns:
+            Dresses_cart (str): the list of dresses purchased
+            Dresses_purchases (float): the total cost of dresses purchased
+            Sweaters_cart (str): the list of sweaters purchased
+            Sweaters_purchases (float): the total cost of sweaters purchased
+            Coats_cart (str): the list of coats purchased
+            Coats_purchases (float): the total cost of coats purchased 
+            
+        """
+        Dresses = 1
+        Sweaters = 2
+        Coats = 3
+        Exit = 4
+
+        print('1) Dresses')
+        print('2) Sweaters')
+        print('3) Coats')
+        print('4) Exit')
+        print()
+
+        Dresses_prices = {'Sundress': 35.00, 'Midi dress': 19.99, 'Maxi dress': 17.99, 'Mini dress': 13.49}
+        Dresses_purchases = 0
+        Dresses_cart = []
+
+        Sweaters_prices = {'Cozy sweater': 54.00, 'Long sweater dress': 39.00, 'Christmas sweater': 30.00, 'Crop sweater': 15.00}
+        Sweaters_purchases = 0
+        Sweaters_cart = []
+
+        Coats_prices = {'Trench coat': 49.50, 'Faux fur coat': 109.99, 'Blazer': 30.99, 'Double breasted coat': 120.49}
+        Coats_purchases = 0
+        Coats_cart = []
 
 
+        user_choice = int(input('Welcome to FashionNova! Which of our departments above would you like to shop in? '))
+        print()
+
+        while user_choice != Exit:
+            if user_choice == Dresses:
+                print(Dresses_prices, '\n')
+                dresses_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if dresses_choice != 'done':
+                    Dresses_purchases += Dresses_prices[dresses_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Dresses_cart, '\n')
+                    print('The amount you purchased on dresses is: $',round(Dresses_purchases, 2), '\n')
+                    self.fashion_total += Dresses_purchases
+                    self.fashionnova_store()
+                Dresses_cart.append(dresses_choice)
+            
+            elif user_choice == Sweaters:
+                print(Sweaters_prices, '\n')
+                sweaters_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if sweaters_choice != 'done':
+                    Sweaters_purchases += Sweaters_prices[sweaters_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Sweaters_cart, '\n')
+                    print('The amount you purchased on sweaters is: $',round(Sweaters_purchases, 2))
+                    print()
+                    self.fashion_total += Sweaters_purchases
+                    self.fashionnova_store()
+                Sweaters_cart.append(sweaters_choice)
+                
+            elif user_choice == Coats:
+                print(Coats_prices, '\n')
+                coats_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                if coats_choice != 'done':
+                    Coats_purchases += Coats_prices[coats_choice]
+                else:
+                    print('Your cart consists of the following items:' '\n')
+                    print(Coats_cart, '\n')
+                    print('The amount you purchased on coats is: $',round(Coats_purchases, 2), '\n')
+                    self.fashion_total += Coats_purchases
+                    self.fashionnova_store()
+                Coats_cart.append(coats_choice)
+                
+        if self.fashion_total >= 150:
+            self.discount_total_fashion = self.discount_amount_fashion * self.fashion_total
+            self.final_price_fashion = self.fashion_total - self.discount_total_fashion 
+        
+        print('Thanks for shopping at FashionNova. Your total came out to be: $',round(self.fashion_total, 2))
+        print('You have spent over $150 at FashionNova, you have been rewarded a discount of', self.fashion_discount,'%!')
+        print('You saved a total of: $', round(self.discount_total_fashion, 2))
+        print('Your new total is now: $', round(self.final_price_fashion, 2))
+        print('Come again!')
+        print()
+        self.user_choice()
 
 
 
