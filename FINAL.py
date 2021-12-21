@@ -634,6 +634,102 @@ class Mall:
 	        print('Thanks for shopping at Beauty Store. Your total came out to be: $',round(self.final_price_beauty, 2))
 	        print('You saved a total of: $',round(self.discount_total_beauty, 2),'\n' 'Come again!' '\n')
 	        self.user_choice()
+	
+	def fashionnova_store(self):
+            """
+            A method to allow the shopper to shop in specific departments each store offers.
+            
+            Returns:
+                dresses_cart (str): the list of dresses products purchased
+                dresses_purchases (float): the total cost of dresses products purchased
+                sweaters_cart (str): the list of sweaters products purchased
+                sweaters_purchases (float): the total cost of sweaters products purchased
+                coats_cart (str): the list of accessory products purchased
+                coats_purchases (float): the total cost of accessory products purchased
+            """
+            Dresses = 1
+            Sweaters = 2
+            Coats = 3
+            Exit = 4
+    
+
+            print('1) Dresses')
+            print('2) Sweaters')
+            print('3) Coats')
+            print('4) Exit')
+            print()
+        
+            dresses_prices = {'sundress': 35.00, 'midi dress': 19.99, 'maxi dress': 17.99, 'mini dress': 13.49}
+            dresses_purchases = 0
+            dresses_cart = []
+    
+
+            sweaters_prices = {'cozy sweater set': 54.00, 'long sweater dress': 39.00, 'christmas sweater': 30.00, 'crop sweater': 15.00}
+            sweaters_purchases = 0
+            sweaters_cart = []
+    
+
+            coats_prices = {'trench coat': 49.50, 'faux fur coat': 109.99, 'Blazer': 30.99, 'double breatsed coat': 120.49}
+            coats_purchases = 0
+            coats_cart = []
+    
+
+            user_choice = int(input('Welcome to Fashionnova! Which of our departments above would you like to shop in? '))
+            print()
+            
+            while user_choice != Exit:
+                if user_choice == Dresses:
+                    print(dresses_prices, '\n')
+                    dresses_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                    print()
+                    if dresses_choice == "maxi dress":
+                        print("Congratulations! You have just recieved a", self.fashionnova_discount,"%, your discount will be applied at checkout.")
+                        print()
+                    if dresses_choice != 'done':
+                        dresses_purchases += dresses_prices[dresses_choice]
+                    else:
+                        print('Your cart consists of the following items:' '\n')
+                        print(dresses_cart, '\n')
+                        print('The amount you purchased on dressess is: $',round(dresses_purchases, 2),'\n''Your', self.fashionnova_discount,'% discount will be applied at checkout.' '\n')
+                        self.fashionnova_total += dresses_purchases
+                        self.fashionnova_store()
+                    dresses_cart.append(dresses_choice)
+                
+                elif user_choice == Sweaters:
+                    print(sweaters_prices, '\n')
+                    sweaters_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                    if sweaters_choice != 'done':
+                        sweaters_purchases += sweaters_prices[sweaters_choice]
+                    else:
+                        print('Your cart consists of the following items:' '\n')
+                        print(sweaters_cart, '\n')
+                        print('The amount you purchased on sweaters is: $',round(sweaters_purchases, 2), '\n')
+                        self.fashionnova_total += sweaters_purchases
+                        self.fashionnova_store()
+                    sweaters_cart.append(sweaters_choice)
+                    
+                elif user_choice == Coats:
+                    print(coats_prices, '\n')
+                    coats_choice = input('Which items would you like to buy? Or are you "done"?' '\n')
+                    if coats_choice != 'done':
+                        coats_purchases += coats_prices[coats_choice]
+                    else:
+                        print('Your cart consists of the following items:' '\n')
+                        print(coats_cart, '\n')
+                        print('The amount you purchased on coats is: $',round(coats_purchases, 2), '\n')
+                        self.fashionnova_total += coats_purchases
+                        self.fashionnova_store()
+                    coats_cart.append(coats_choice)
+                
+            self.discount_total_fashionnova = self.discount_amount_fashionnova * self.fashionnova_total
+            self.final_price_fashionnova = self.fashionnova_total - self.discount_total_fashionnova  
+             
+            print('Thanks for shopping at Fashionnova Store. Your total came out to be: $',round(self.final_price_fashionnova, 2))
+            print('You saved a total of: $',round(self.discount_total_fashionnova, 2),'\n' 'Come again!' '\n')
+            self.user_choice()
+
+
+
 
 
     
